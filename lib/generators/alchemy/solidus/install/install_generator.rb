@@ -1,12 +1,6 @@
 require 'rails/generators'
-require 'rails/generators/alchemy/install/install_generator'
 require 'generators/spree/custom_user/custom_user_generator'
 require 'solidus_support'
-
-begin
-  require 'generators/alchemy/devise/install/install_generator'
-rescue
-end
 
 module Alchemy
   module Solidus
