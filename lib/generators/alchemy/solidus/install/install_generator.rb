@@ -1,4 +1,5 @@
 require 'rails/generators'
+require 'rails/generators/alchemy/install/install_generator'
 require 'generators/spree/custom_user/custom_user_generator'
 require 'solidus_support'
 
