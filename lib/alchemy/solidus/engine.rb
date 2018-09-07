@@ -18,20 +18,13 @@ module Alchemy
         Alchemy.register_ability ::Spree::Ability
         ::Spree::Ability.register_ability ::Alchemy::Permissions
 
-        if Alchemy.user_class_name == 'Spree::User'
-          require 'alchemy/solidus/spree_user_extension'
-          Spree::User.include Alchemy::Solidus::SpreeUserExtension
-        end
+        Alchemy.user_class_name == 'Spree::User'
+        Alchemy.current_user_method = :spree_current_user
 
-        if Alchemy.user_class_name == 'Alchemy::User'
-          require 'alchemy/solidus/alchemy_user_extension'
-          Alchemy::User.include Alchemy::Solidus::AlchemyUserExtension
-        end
 
-        if SolidusSupport.solidus_gem_version < Gem::Version.new('2.7')
-          require 'alchemy/solidus/spree_custom_user_generator_fix'
-          require 'alchemy/solidus/spree_install_generator_fix'
-        end
+        require 'alchemy/solidus/spree_user_extension'
+        Spree::User.include Alchemy::Solidus::SpreeUserExtension
+
       end
     end
   end
