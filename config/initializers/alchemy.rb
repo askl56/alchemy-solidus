@@ -8,3 +8,6 @@ Alchemy::Modules.register_module({
     image: 'alchemy/solidus/alchemy_module_icon.png'
   }
 })
+
+Alchemy.user_class_name = 'Spree::User'
+Alchemy.current_user_method = :spree_current_user
